@@ -3,7 +3,12 @@ public class analyser {
             "T -> T '*' F | F\n" +
             "F -> '(' E ')' | 'i'";
 
-    public static void main(String[] args) {
+    public analyser() {
 
+    }
+
+    public static void main(String[] args) {
+        analyser op=new analyser();
+        System.out.println(op.rules);
     }
 }
