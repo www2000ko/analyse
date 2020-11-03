@@ -79,8 +79,15 @@ public class Main {
     }
 
     private Result checkOP(char stk,char ch) {
-        int vs=map.get(stk);
-        int vc=map.get(ch);
+        int vs=0,vc=0;
+        if(map.containsKey(stk)){
+            vs=map.get(stk);
+        }
+
+        if(map.containsKey(ch)){
+            vc=map.get(ch);
+        }
+
         return matrix[vs][vc];
     }
 
@@ -92,6 +99,6 @@ public class Main {
         char buf[] = new char[length+1];
         reader.read(buf);
         reader.close();
-        new Main().analyze(new String(buf).substring(0,length));
+        new Main().analyze(new String(buf).substring(0,length-2));
     }
 }
