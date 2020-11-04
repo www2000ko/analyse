@@ -117,11 +117,16 @@ public class Main {
         if(map.containsKey(stk)){
             vs=map.get(stk);
         }
+        else{
+            return null;
+        }
 
         if(map.containsKey(ch)){
             vc=map.get(ch);
         }
-
+        else{
+            return null;
+        }
         return matrix[vs][vc];
     }
 
