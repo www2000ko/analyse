@@ -50,6 +50,7 @@ public class Main {
                 System.out.println("I"+chTop);
                 stk=chTop+stk;
                 ch=ch.substring(1);
+                stkTop=getTop(stk);
                 chTop=getTop(ch);
             }
             else if(result==Result.LOWER){
