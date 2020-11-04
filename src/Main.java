@@ -35,13 +35,13 @@ public class Main {
         System.out.println(ch);
         stk="#";
         ch=ch+'#';
-        stkTop=stk.charAt(0);
-        chTop=ch.charAt(0);
+        stkTop=getTop(stk);
+        chTop=getTop(ch);
         while(!(chTop=='#'&&stkTop=='#')){
             Result result=checkOP(stkTop,chTop);
             if(result==Result.HIGHER){
                 reduction();
-                stkTop=stk.charAt(0);
+                stkTop=getTop(stk);
             }
             else if(result==Result.EQUAL){
                 if(stkTop=='#'){
@@ -50,14 +50,14 @@ public class Main {
                 System.out.println("I"+chTop);
                 stk=chTop+stk;
                 ch=ch.substring(1);
-                chTop=ch.charAt(0);
+                chTop=getTop(ch);
             }
             else if(result==Result.LOWER){
                 System.out.println("I"+chTop);
                 stk=chTop+stk;
                 ch=ch.substring(1);
-                stkTop=stk.charAt(0);
-                chTop=ch.charAt(0);
+                stkTop=getTop(stk);
+                chTop=getTop(ch);
             }
             else{
                 System.out.println("E");
@@ -69,17 +69,48 @@ public class Main {
 
     private void reduction() {
         int i;
-        for (i = 0; i <stk.length()-1; i++) {
+        char item = stk.charAt(0);
+        if(item=='i'){
+            stk=stk.substring(1);
+            stk='N'+stk;
+            System.out.println("R");
+        }
+        else if(stk.length()>=3&&item==')'&&stk.charAt(1)=='N'&&stk.charAt(2)=='('){
+            stk=stk.substring(3);
+            stk='N'+stk;
+            System.out.println("R");
+        }
+        else if(stk.length()>=3&&item=='N'&&stk.charAt(1)=='*'&&stk.charAt(2)=='N') {
+            stk=stk.substring(3);
+            stk='N'+stk;
+            System.out.println("R");
+        }
+        else if(stk.length()>=3&&item=='N'&&stk.charAt(1)=='+'&&stk.charAt(2)=='N'){
+            stk=stk.substring(3);
+            stk='N'+stk;
+            System.out.println("R");
+        }
+        else{
+            System.out.println("RE");
+            System.exit(0);
+        }
+        /*for (i = 0; i <stk.length()-1; i++) {
             char item = stk.charAt(i);
             char last=stk.charAt(i+1);
             if(checkOP(last,item)!=Result.EQUAL){
                    break;
             }
         }
-        stk=stk.substring(i+1);
-        System.out.println("R");
-    }
+        stk=stk.substring(i+1);*/
 
+    }
+    private char getTop(String str){
+        int i=0;
+        while(str.charAt(i)=='N'){
+            i++;
+        }
+        return str.charAt(i);
+    }
     private Result checkOP(char stk,char ch) {
         int vs=0,vc=0;
         if(map.containsKey(stk)){
