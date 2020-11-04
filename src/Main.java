@@ -32,6 +32,7 @@ public class Main {
     private String ch;
     private char stkTop,chTop;
     void analyze(String ch) {
+        System.out.println(ch);
         stk="#";
         ch=ch+'#';
         stkTop=stk.charAt(0);
