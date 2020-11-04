@@ -46,6 +46,7 @@ public class Main {
                 if(stkTop=='#'){
                     System.exit(0);
                 }
+                System.out.println("I"+chTop);
                 stk=chTop+stk;
                 ch=ch.substring(1);
                 chTop=ch.charAt(0);
