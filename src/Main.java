@@ -24,9 +24,9 @@ public class Main {
                     {Result.HIGHER,Result.LOWER,Result.LOWER,Result.LOWER,Result.HIGHER,Result.HIGHER},
                     {Result.HIGHER,Result.HIGHER,Result.LOWER,Result.LOWER,Result.HIGHER,Result.HIGHER},
                     {Result.HIGHER,Result.HIGHER,null,        null,      Result.HIGHER,Result.HIGHER},
-                    {Result.LOWER ,Result.LOWER,Result.LOWER ,Result.LOWER,Result.EQUAL,Result.HIGHER},
+                    {Result.LOWER ,Result.LOWER,Result.LOWER ,Result.LOWER,Result.EQUAL,null        },
                     {Result.HIGHER,Result.HIGHER,null       ,null          , Result.HIGHER,Result.HIGHER},
-                    {Result.LOWER,Result.LOWER,Result.LOWER,Result.LOWER,Result.LOWER,Result.EQUAL},
+                    {Result.LOWER,Result.LOWER,Result.LOWER,Result.LOWER    ,null       ,Result.EQUAL},
             };
     private String stk;
     private String ch;
